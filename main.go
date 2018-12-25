@@ -3,12 +3,14 @@ package main
 import (
 	"net/http"
 	"os"
-
+	"path/filepath"
+	
 	v1API "github.com/yueji12321/opentsdb-promql-frontend/api/v1"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/route"
 	"github.com/prometheus/prometheus/promql"
 	"golang.org/x/net/context"
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 const apiRoute = "/api/v1"
@@ -31,7 +33,9 @@ func init() {
 }
 
 func main() {
-	log.Infof("%s\n",os.Getenv("ADDR"))
+	a := kingpin.New(filepath.Base(os.Args[0]), "Remote storage adapter")
+	a.HelpFlag.Short('h')
+	log.Infof("%s\n",a.Flag("ADDR"))
 	var (
 		ctx, cancelCtx = context.WithCancel(context.Background())
 		storage        = &queryable{}
