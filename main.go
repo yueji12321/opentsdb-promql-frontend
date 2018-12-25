@@ -31,6 +31,7 @@ func init() {
 }
 
 func main() {
+	log.Infof("%s\n",os.Getenv("ADDR"))
 	var (
 		ctx, cancelCtx = context.WithCancel(context.Background())
 		storage        = &queryable{}
