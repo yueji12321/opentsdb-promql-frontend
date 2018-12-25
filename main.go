@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"os"
 
-	v1API "github.com/mattbostock/opentsdb-promql-frontend/api/v1"
+	v1API "github.com/yueji12321/opentsdb-promql-frontend/api/v1"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/route"
 	"github.com/prometheus/prometheus/promql"
